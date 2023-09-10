@@ -3,10 +3,6 @@
 require "test_helper"
 
 class TestNetscapeBookmarkFileParser < Minitest::Test
-  def setup
-    @bks = ::NetscapeBookmarkFileParser.parse("test/c.html")
-  end
-
   def test_that_it_has_a_version_number
     refute_nil ::NetscapeBookmarkFileParser::VERSION
   end
@@ -15,7 +11,11 @@ class TestNetscapeBookmarkFileParser < Minitest::Test
   #   assert false
   # end
 
-  def test_bks
-    pp @bks
+  def test_parse
+    refute_empty ::NetscapeBookmarkFileParser.parse("test/c.html")
+  end
+
+  def test_parse_bookmark
+    p ::NetscapeBookmarkFileParser.parse("test/c.html")
   end
 end
