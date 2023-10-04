@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.summary = "Parse NETSCAPE Bookmark file."
   spec.description = "Parse NETSCAPE Bookmark file."
   spec.homepage = "https://github.com/sapeu/netscape_bookmark_file_parser"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 2.7.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
@@ -31,8 +31,8 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  # spec.add_dependency "example-gem", "~> 1.0"
   spec.add_dependency "nokogiri", "~> 1.15"
+  spec.add_development_dependency "standard", "~> 1.31"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
