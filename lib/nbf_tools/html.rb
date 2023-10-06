@@ -2,7 +2,7 @@
 
 module NbfTools
   class HTML
-    CONTENT_FORMAT = "<!DOCTYPE NETSCAPE-Bookmark-file-1>\n<!-- This is an automatically generated file.\n     It will be read and overwritten.\n     DO NOT EDIT! -->\n<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">\n<TITLE>Bookmarks</TITLE>\n<H1>Bookmarks</H1>\n<DL><p>\n%{content}s\n</DL><p>"
+    CONTENT_FORMAT = "<!DOCTYPE NETSCAPE-Bookmark-file-1>\n<!-- This is an automatically generated file.\n     It will be read and overwritten.\n     DO NOT EDIT! -->\n<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">\n<TITLE>Bookmarks</TITLE>\n<H1>Bookmarks</H1>\n<DL><p>\n%{content}\n</DL><p>"
     LINK_FORMAT = "%{indent}<DT><A %{attributes}>%{text}</A>"
     FOLDER_FORMAT = "%{indent}<DT><H3 %{attributes}>%{text}</H3>\n%{indent}<DL><p>\n%{items}\n%{indent}</DL><p>"
 

@@ -25,7 +25,7 @@ class TestNbfTools < Minitest::Test
       \t\t<DL><p>
       \t\t\t<DT><A HREF="https://aa" ADD_DATE="7" LAST_MODIFIED="8">AA</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
     IO.write("tmp/test_parse.html", file_content)
@@ -86,7 +86,7 @@ class TestNbfTools < Minitest::Test
       \t\t<DL><p>
       \t\t\t<DT><A HREF="https://aa" ADD_DATE="17" LAST_MODIFIED="18">AA</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
     IO.write("tmp/test_parse_files_in_one1.html", file_content1)
@@ -111,7 +111,7 @@ class TestNbfTools < Minitest::Test
       \t\t\t<DT><A HREF="https://aa" ADD_DATE="13" LAST_MODIFIED="14">AA</A>
       \t\t\t<DT><A HREF="https://bb" ADD_DATE="15" LAST_MODIFIED="16">BB</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
     IO.write("tmp/test_parse_files_in_one2.html", file_content2)
@@ -233,7 +233,7 @@ class TestNbfTools < Minitest::Test
       \t\t<DL><p>
       \t\t\t<DT><A HREF="https://aa" ADD_DATE="7" LAST_MODIFIED="8">AA</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
     assert_equal exp, NbfTools::HTML.new(data).to_s
@@ -256,7 +256,7 @@ class TestNbfTools < Minitest::Test
       \t\t<DL><p>
       \t\t\t<DT><A HREF="https://aa" ADD_DATE="17" LAST_MODIFIED="18">AA</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
     IO.write("tmp/test_parse_files_in_one_html1.html", file_content1)
@@ -281,7 +281,7 @@ class TestNbfTools < Minitest::Test
       \t\t\t<DT><A HREF="https://aa" ADD_DATE="13" LAST_MODIFIED="14">AA</A>
       \t\t\t<DT><A HREF="https://bb" ADD_DATE="15" LAST_MODIFIED="16">BB</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
     IO.write("tmp/test_parse_files_in_one_html2.html", file_content2)
@@ -307,7 +307,7 @@ class TestNbfTools < Minitest::Test
       \t\t<DL><p>
       \t\t\t<DT><A HREF="https://bb" ADD_DATE="15" LAST_MODIFIED="16">BB</A>
       \t\t</DL><p>
-      \t</DL><p>s
+      \t</DL><p>
       </DL><p>
     HTML
 
