@@ -1,16 +1,10 @@
 # frozen_string_literal: true
 
 require "nokogiri"
-module NetscapeBookmarkFileParser
-  class Parser
+module NbfTools
+  class Parse
     def initialize file
-      @document = if file.is_a?(File)
-        Nokogiri::HTML(file)
-      elsif File.file?(file)
-        Nokogiri::HTML(File.open(file))
-      else
-        Nokogiri::HTML(file)
-      end
+      @document = Nokogiri::HTML(File.open(file))
     end
 
     def parse
@@ -23,12 +17,12 @@ module NetscapeBookmarkFileParser
         when "dt"
           items.push(*parse_node_children(c, path))
         when "a"
-          bookmark = c.to_h.merge("text" => c.text, "type" => NetscapeBookmarkFileParser.config.link_type_text, "path" => path.to_s)
+          bookmark = c.to_h.merge("text" => c.text, "type" => NbfTools.config.link_type_text, "path" => path.to_s)
           items.push bookmark
         when "h3"
           folder_name = c.text
-          folder_name = NetscapeBookmarkFileParser.config.personal_toolbar_folder_text if c["personal_toolbar_folder"] == "true"
-          folder = c.to_h.merge("text" => folder_name, "type" => NetscapeBookmarkFileParser.config.folder_type_text, "path" => (path + folder_name).to_s, "items" => [])
+          folder_name = NbfTools.config.personal_toolbar_folder_text if c["personal_toolbar_folder"] == "true"
+          folder = c.to_h.merge("text" => folder_name, "type" => NbfTools.config.folder_type_text, "path" => (path + folder_name).to_s, "items" => [])
           items.push folder
         when "dl"
           folder = items.select { |e| e["type"] == "folder" }.last

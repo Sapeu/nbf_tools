@@ -1,23 +1,23 @@
 # frozen_string_literal: true
 
-require_relative "lib/netscape_bookmark_file_parser/version"
+require_relative "lib/nbf_tools/version"
 
 Gem::Specification.new do |spec|
-  spec.name = "netscape_bookmark_file_parser"
-  spec.version = NetscapeBookmarkFileParser::VERSION
+  spec.name = "nbf_tools"
+  spec.version = NbfTools::VERSION
   spec.authors = ["Sapeu"]
   spec.email = ["sapeu.lee@foxmail.com"]
 
-  spec.summary = "Parse NETSCAPE Bookmark file."
-  spec.description = "Parse NETSCAPE Bookmark file."
-  spec.homepage = "https://github.com/sapeu/netscape_bookmark_file_parser"
+  spec.summary = "NETSCAPE Bookmark file tools."
+  spec.description = "NETSCAPE Bookmark file tools."
+  spec.homepage = "https://github.com/sapeu/nbf_tools"
   spec.required_ruby_version = ">= 2.7.0"
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/sapeu/netscape_bookmark_file_parser"
-  spec.metadata["changelog_uri"] = "https://github.com/sapeu/netscape_bookmark_file_parser/blob/main/CHANGELOG.md"
+  spec.metadata["source_code_uri"] = "https://github.com/sapeu/nbf_tools"
+  spec.metadata["changelog_uri"] = "https://github.com/sapeu/nbf_tools/blob/main/CHANGELOG.md"
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

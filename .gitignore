@@ -6,4 +6,5 @@
 /pkg/
 /spec/reports/
 /tmp/
+/checksums/
 .ruby-version

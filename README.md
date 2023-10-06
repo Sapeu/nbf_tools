@@ -1,22 +1,37 @@
-# NetscapeBookmarkFileParser
+# NbfTools
 
-Parse NETSCAPE Bookmark file.
-
-[Netscape Bookmark File Format](https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/aa753582(v=vs.85))
+NETSCAPE Bookmark file tools.
 
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add netscape_bookmark_file_parser
+    $ bundle add nbf_tools
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install netscape_bookmark_file_parser
+    $ gem install nbf_tools
 
 ## Usage
 
-TODO: Write usage instructions here
+Parse NETSCAPE Bookmark file.
+
+```ruby
+NbfTools.parse bookmark_file_path
+```
+
+Merge and parse NETSCAPE Bookmark files.
+
+```ruby
+NbfTools.parse_files_in_one bookmark_file_path1, bookmark_file_path2
+```
+
+Export merge NETSCAPE Bookmark files to one html string.
+
+```ruby
+NbfTools.parse_files_in_one_html bookmark_file_path1, bookmark_file_path2
+```
+
 
 ## Development
 
@@ -26,4 +41,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/Sapeu/netscape_bookmark_file_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/Sapeu/nbf_tools.

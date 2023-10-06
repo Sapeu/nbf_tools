@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    netscape_bookmark_file_parser (0.1.0)
+    nbf_tools (0.1.0)
       nokogiri (~> 1.15)
 
 GEM
@@ -61,7 +61,7 @@ PLATFORMS
 
 DEPENDENCIES
   minitest (~> 5.0)
-  netscape_bookmark_file_parser!
+  nbf_tools!
   rake (~> 13.0)
   standard (~> 1.3)
 

@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-# Specify your gem's dependencies in netscape_bookmark_file_parser.gemspec
+# Specify your gem's dependencies in nbf_tools.gemspec
 gemspec
 
 gem "rake", "~> 13.0"
