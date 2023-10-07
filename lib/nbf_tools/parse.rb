@@ -25,7 +25,7 @@ module NbfTools
           folder = c.to_h.merge("text" => folder_name, "type" => NbfTools.config.folder_type_text, "path" => (path + folder_name).to_s, "items" => [])
           items.push folder
         when "dl"
-          folder = items.select { |e| e["type"] == "folder" }.last
+          folder = items.reverse.find { |e| e["type"] == "folder" }
           folder.nil? ? items.push(*parse_node_children(c), path) : folder["items"] = parse_node_children(c, path + folder["text"])
         end
       end

@@ -1,6 +1,6 @@
 # NbfTools
 
-NETSCAPE Bookmark file tools.
+NETSCAPE Bookmark file tools，file from chrome edge firefox safari browser
 
 ## Installation
 
