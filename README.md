@@ -23,13 +23,13 @@ NbfTools.parse bookmark_file_path
 Merge and parse multiple NETSCAPE Bookmark files.
 
 ```ruby
-NbfTools.parse_files_in_one bookmark_file_path1, bookmark_file_path2
+NbfTools.parse_files_to_one bookmark_file_path1, bookmark_file_path2
 ```
 
 Merge multiple NETSCAPE Bookmark files into one html string.
 
 ```ruby
-NbfTools.parse_files_in_one_html bookmark_file_path1, bookmark_file_path2
+NbfTools.merge_files_to_one_html bookmark_file_path1, bookmark_file_path2
 ```
 
 ## Development

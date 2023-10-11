@@ -13,16 +13,16 @@ module NbfTools
       Parse.new(**options).parse(file)
     end
 
-    def parse_files_in_one(*files, **options)
+    def parse_files_to_one(*files, **options)
       parse_tool = Parse.new(**options)
       data = files.map { |file| parse_tool.parse(file) }
       return data[0] if files.size < 2
       Merge.new(data).to_a
     end
 
-    def parse_files_in_one_html(*files, **custom_options)
+    def merge_files_to_one_html(*files, **custom_options)
       return File.read(files[0]) if files.size < 2
-      data = parse_files_in_one(*files)
+      data = parse_files_to_one(*files)
       HTML.new(data).to_s
     end
   end

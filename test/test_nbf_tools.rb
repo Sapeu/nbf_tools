@@ -109,7 +109,7 @@ class TestNbfTools < Minitest::Test
     assert_equal custom_folder_text_exp, NbfTools.parse("tmp/test_parse.html", personal_toolbar_folder_text: "custom folder text")
   end
 
-  def test_parse_files_in_one
+  def test_parse_files_to_one
     file_content1 = <<~HTML.chomp
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
       <!-- This is an automatically generated file.
@@ -129,7 +129,7 @@ class TestNbfTools < Minitest::Test
       \t</DL><p>
       </DL><p>
     HTML
-    IO.write("tmp/test_parse_files_in_one1.html", file_content1)
+    IO.write("tmp/test_parse_files_to_one1.html", file_content1)
     file_content2 = <<~HTML.chomp
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
       <!-- This is an automatically generated file.
@@ -154,7 +154,7 @@ class TestNbfTools < Minitest::Test
       \t</DL><p>
       </DL><p>
     HTML
-    IO.write("tmp/test_parse_files_in_one2.html", file_content2)
+    IO.write("tmp/test_parse_files_to_one2.html", file_content2)
     exp = [
       {
         "add_date" => "1",
@@ -278,8 +278,8 @@ class TestNbfTools < Minitest::Test
         ]
       }
     ]
-    assert_equal exp, NbfTools.parse_files_in_one("tmp/test_parse_files_in_one1.html", "tmp/test_parse_files_in_one2.html")
-    assert_equal custom_folder_text_exp, NbfTools.parse_files_in_one("tmp/test_parse_files_in_one1.html", "tmp/test_parse_files_in_one2.html", personal_toolbar_folder_text: "custom folder text 2")
+    assert_equal exp, NbfTools.parse_files_to_one("tmp/test_parse_files_to_one1.html", "tmp/test_parse_files_to_one2.html")
+    assert_equal custom_folder_text_exp, NbfTools.parse_files_to_one("tmp/test_parse_files_to_one1.html", "tmp/test_parse_files_to_one2.html", personal_toolbar_folder_text: "custom folder text 2")
   end
 
   def test_html_to_s
@@ -342,7 +342,7 @@ class TestNbfTools < Minitest::Test
     assert_equal exp, NbfTools::HTML.new(data).to_s
   end
 
-  def test_parse_files_in_one_html
+  def test_merge_files_to_one_html
     file_content1 = <<~HTML.chomp
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
       <!-- This is an automatically generated file.
@@ -362,7 +362,7 @@ class TestNbfTools < Minitest::Test
       \t</DL><p>
       </DL><p>
     HTML
-    IO.write("tmp/test_parse_files_in_one_html1.html", file_content1)
+    IO.write("tmp/test_merge_files_to_one_html1.html", file_content1)
     file_content2 = <<~HTML.chomp
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
       <!-- This is an automatically generated file.
@@ -387,7 +387,7 @@ class TestNbfTools < Minitest::Test
       \t</DL><p>
       </DL><p>
     HTML
-    IO.write("tmp/test_parse_files_in_one_html2.html", file_content2)
+    IO.write("tmp/test_merge_files_to_one_html2.html", file_content2)
 
     exp = <<~HTML.chomp
       <!DOCTYPE NETSCAPE-Bookmark-file-1>
@@ -414,6 +414,6 @@ class TestNbfTools < Minitest::Test
       </DL><p>
     HTML
 
-    assert_equal exp, NbfTools.parse_files_in_one_html("tmp/test_parse_files_in_one_html1.html", "tmp/test_parse_files_in_one_html2.html")
+    assert_equal exp, NbfTools.merge_files_to_one_html("tmp/test_merge_files_to_one_html1.html", "tmp/test_merge_files_to_one_html2.html")
   end
 end
