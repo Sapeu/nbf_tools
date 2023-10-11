@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "type"
+
 module NbfTools
   class Merge
     def initialize(data)
@@ -35,9 +37,9 @@ module NbfTools
     def flat_folder_and_link_map(data, link_map, folder_map)
       data.map do |e|
         case e["type"]
-        when NbfTools.config.link_type_text
+        when NbfTools::Type::LINK
           choose_latest_element(link_map, "href", e)
-        when NbfTools.config.folder_type_text
+        when NbfTools::Type::FOLDER
           choose_latest_element(folder_map, "path", e)
           flat_folder_and_link_map(e["items"], link_map, folder_map)
         end

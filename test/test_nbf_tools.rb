@@ -34,9 +34,9 @@ class TestNbfTools < Minitest::Test
         "add_date" => "1",
         "last_modified" => "2",
         "personal_toolbar_folder" => "true",
-        "text" => "personal toolbar",
+        "text" => "书签栏",
         "type" => "folder",
-        "path" => "/personal toolbar",
+        "path" => "/书签栏",
         "items" => [
           {
             "href" => "https://a",
@@ -44,14 +44,14 @@ class TestNbfTools < Minitest::Test
             "last_modified" => "4",
             "text" => "A",
             "type" => "link",
-            "path" => "/personal toolbar"
+            "path" => "/书签栏"
           },
           {
             "add_date" => "5",
             "last_modified" => "6",
             "text" => "A",
             "type" => "folder",
-            "path" => "/personal toolbar/A",
+            "path" => "/书签栏/A",
             "items" => [
               {
                 "href" => "https://aa",
@@ -59,14 +59,54 @@ class TestNbfTools < Minitest::Test
                 "last_modified" => "8",
                 "text" => "AA",
                 "type" => "link",
-                "path" => "/personal toolbar/A"
+                "path" => "/书签栏/A"
               }
             ]
           }
         ]
       }
     ]
+
+    custom_folder_text_exp = [
+      {
+        "add_date" => "1",
+        "last_modified" => "2",
+        "personal_toolbar_folder" => "true",
+        "text" => "custom folder text",
+        "type" => "folder",
+        "path" => "/custom folder text",
+        "items" => [
+          {
+            "href" => "https://a",
+            "add_date" => "3",
+            "last_modified" => "4",
+            "text" => "A",
+            "type" => "link",
+            "path" => "/custom folder text"
+          },
+          {
+            "add_date" => "5",
+            "last_modified" => "6",
+            "text" => "A",
+            "type" => "folder",
+            "path" => "/custom folder text/A",
+            "items" => [
+              {
+                "href" => "https://aa",
+                "add_date" => "7",
+                "last_modified" => "8",
+                "text" => "AA",
+                "type" => "link",
+                "path" => "/custom folder text/A"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+
     assert_equal exp, NbfTools.parse("tmp/test_parse.html")
+    assert_equal custom_folder_text_exp, NbfTools.parse("tmp/test_parse.html", personal_toolbar_folder_text: "custom folder text")
   end
 
   def test_parse_files_in_one
@@ -120,9 +160,9 @@ class TestNbfTools < Minitest::Test
         "add_date" => "1",
         "last_modified" => "2",
         "personal_toolbar_folder" => "true",
-        "text" => "personal toolbar",
+        "text" => "书签栏",
         "type" => "folder",
-        "path" => "/personal toolbar",
+        "path" => "/书签栏",
         "items" => [
           {
             "href" => "https://a",
@@ -130,13 +170,13 @@ class TestNbfTools < Minitest::Test
             "last_modified" => "4",
             "text" => "A",
             "type" => "link",
-            "path" => "/personal toolbar"
+            "path" => "/书签栏"
           },
           {
             "add_date" => "5",
             "last_modified" => "6",
             "text" => "A", "type" => "folder",
-            "path" => "/personal toolbar/A",
+            "path" => "/书签栏/A",
             "items" => [
               {
                 "href" => "https://aa",
@@ -144,7 +184,7 @@ class TestNbfTools < Minitest::Test
                 "last_modified" => "18",
                 "text" => "AA",
                 "type" => "link",
-                "path" => "/personal toolbar/A"
+                "path" => "/书签栏/A"
               },
               {
                 "href" => "https://ab",
@@ -152,7 +192,7 @@ class TestNbfTools < Minitest::Test
                 "last_modified" => "10",
                 "text" => "AB",
                 "type" => "link",
-                "path" => "/personal toolbar/A"
+                "path" => "/书签栏/A"
               }
             ]
           },
@@ -161,7 +201,7 @@ class TestNbfTools < Minitest::Test
             "last_modified" => "12",
             "text" => "B",
             "type" => "folder",
-            "path" => "/personal toolbar/B",
+            "path" => "/书签栏/B",
             "items" => [
               {
                 "href" => "https://bb",
@@ -169,7 +209,69 @@ class TestNbfTools < Minitest::Test
                 "last_modified" => "16",
                 "text" => "BB",
                 "type" => "link",
-                "path" => "/personal toolbar/B"
+                "path" => "/书签栏/B"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+
+    custom_folder_text_exp = [
+      {
+        "add_date" => "1",
+        "last_modified" => "2",
+        "personal_toolbar_folder" => "true",
+        "text" => "custom folder text 2",
+        "type" => "folder",
+        "path" => "/custom folder text 2",
+        "items" => [
+          {
+            "href" => "https://a",
+            "add_date" => "3",
+            "last_modified" => "4",
+            "text" => "A",
+            "type" => "link",
+            "path" => "/custom folder text 2"
+          },
+          {
+            "add_date" => "5",
+            "last_modified" => "6",
+            "text" => "A", "type" => "folder",
+            "path" => "/custom folder text 2/A",
+            "items" => [
+              {
+                "href" => "https://aa",
+                "add_date" => "17",
+                "last_modified" => "18",
+                "text" => "AA",
+                "type" => "link",
+                "path" => "/custom folder text 2/A"
+              },
+              {
+                "href" => "https://ab",
+                "add_date" => "9",
+                "last_modified" => "10",
+                "text" => "AB",
+                "type" => "link",
+                "path" => "/custom folder text 2/A"
+              }
+            ]
+          },
+          {
+            "add_date" => "11",
+            "last_modified" => "12",
+            "text" => "B",
+            "type" => "folder",
+            "path" => "/custom folder text 2/B",
+            "items" => [
+              {
+                "href" => "https://bb",
+                "add_date" => "15",
+                "last_modified" => "16",
+                "text" => "BB",
+                "type" => "link",
+                "path" => "/custom folder text 2/B"
               }
             ]
           }
@@ -177,6 +279,7 @@ class TestNbfTools < Minitest::Test
       }
     ]
     assert_equal exp, NbfTools.parse_files_in_one("tmp/test_parse_files_in_one1.html", "tmp/test_parse_files_in_one2.html")
+    assert_equal custom_folder_text_exp, NbfTools.parse_files_in_one("tmp/test_parse_files_in_one1.html", "tmp/test_parse_files_in_one2.html", personal_toolbar_folder_text: "custom folder text 2")
   end
 
   def test_html_to_s
@@ -185,9 +288,9 @@ class TestNbfTools < Minitest::Test
         "add_date" => "1",
         "last_modified" => "2",
         "personal_toolbar_folder" => "true",
-        "text" => "personal toolbar",
+        "text" => "书签栏",
         "type" => "folder",
-        "path" => "/personal toolbar",
+        "path" => "/书签栏",
         "items" => [
           {
             "href" => "https://a",
@@ -195,14 +298,14 @@ class TestNbfTools < Minitest::Test
             "last_modified" => "4",
             "text" => "A",
             "type" => "link",
-            "path" => "/personal toolbar"
+            "path" => "/书签栏"
           },
           {
             "add_date" => "5",
             "last_modified" => "6",
             "text" => "A",
             "type" => "folder",
-            "path" => "/personal toolbar/A",
+            "path" => "/书签栏/A",
             "items" => [
               {
                 "href" => "https://aa",
@@ -210,7 +313,7 @@ class TestNbfTools < Minitest::Test
                 "last_modified" => "8",
                 "text" => "AA",
                 "type" => "link",
-                "path" => "/personal toolbar/A"
+                "path" => "/书签栏/A"
               }
             ]
           }
@@ -226,7 +329,7 @@ class TestNbfTools < Minitest::Test
       <TITLE>Bookmarks</TITLE>
       <H1>Bookmarks</H1>
       <DL><p>
-      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">personal toolbar</H3>
+      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">书签栏</H3>
       \t<DL><p>
       \t\t<DT><A HREF="https://a" ADD_DATE="3" LAST_MODIFIED="4">A</A>
       \t\t<DT><H3 ADD_DATE="5" LAST_MODIFIED="6">A</H3>
@@ -249,7 +352,7 @@ class TestNbfTools < Minitest::Test
       <TITLE>Bookmarks</TITLE>
       <H1>Bookmarks</H1>
       <DL><p>
-      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">书签栏</H3>
+      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">书签工具栏</H3>
       \t<DL><p>
       \t\t<DT><A HREF="https://a" ADD_DATE="3" LAST_MODIFIED="4">A</A>
       \t\t<DT><H3 ADD_DATE="5" LAST_MODIFIED="6">A</H3>
@@ -269,7 +372,7 @@ class TestNbfTools < Minitest::Test
       <TITLE>Bookmarks</TITLE>
       <H1>Bookmarks</H1>
       <DL><p>
-      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">书签栏</H3>
+      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">栏签书</H3>
       \t<DL><p>
       \t\t<DT><A HREF="https://a" ADD_DATE="3" LAST_MODIFIED="4">A</A>
       \t\t<DT><H3 ADD_DATE="5" LAST_MODIFIED="6">A</H3>
@@ -295,7 +398,7 @@ class TestNbfTools < Minitest::Test
       <TITLE>Bookmarks</TITLE>
       <H1>Bookmarks</H1>
       <DL><p>
-      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">personal toolbar</H3>
+      \t<DT><H3 ADD_DATE="1" LAST_MODIFIED="2" PERSONAL_TOOLBAR_FOLDER="true">书签工具栏</H3>
       \t<DL><p>
       \t\t<DT><A HREF="https://a" ADD_DATE="3" LAST_MODIFIED="4">A</A>
       \t\t<DT><H3 ADD_DATE="5" LAST_MODIFIED="6">A</H3>

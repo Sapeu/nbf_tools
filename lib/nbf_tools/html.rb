@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require_relative "type"
+
 module NbfTools
   class HTML
     CONTENT_FORMAT = "<!DOCTYPE NETSCAPE-Bookmark-file-1>\n<!-- This is an automatically generated file.\n     It will be read and overwritten.\n     DO NOT EDIT! -->\n<META HTTP-EQUIV=\"Content-Type\" CONTENT=\"text/html; charset=UTF-8\">\n<TITLE>Bookmarks</TITLE>\n<H1>Bookmarks</H1>\n<DL><p>\n%{content}\n</DL><p>"
@@ -22,9 +24,9 @@ module NbfTools
       return if data.nil?
       data.map do |e|
         case e["type"]
-        when NbfTools.config.link_type_text
+        when NbfTools::Type::LINK
           link_html(e)
-        when NbfTools.config.folder_type_text
+        when NbfTools::Type::FOLDER
           folder_html(e)
         end
       end.join("\n")
