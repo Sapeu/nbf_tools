@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Sapeu"]
   spec.email = ["sapeu.lee@foxmail.com"]
 
-  spec.summary = "NETSCAPE Bookmark file tools."
-  spec.description = "NETSCAPE Bookmark file tools."
+  spec.summary = "NETSCAPE Bookmark file tools, parse and merge multiple files."
+  spec.description = "NETSCAPE Bookmark file tools, parse file and merge multiple files.\nThe file was exported from Chrome, Edge, Firefox or Safari browser."
   spec.homepage = "https://github.com/sapeu/nbf_tools"
   spec.required_ruby_version = ">= 2.7.0"
   spec.license = "MIT"

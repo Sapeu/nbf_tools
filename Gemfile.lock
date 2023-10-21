@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    nbf_tools (0.2.1)
+    nbf_tools (0.3.0)
       nokogiri (~> 1.15)
 
 GEM
